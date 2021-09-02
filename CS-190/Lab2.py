@@ -1,10 +1,12 @@
 # L2 Space Flight calculator
 # Create a calc that calculates how many years does it take to travel x light years
 
-scs = int(input("Speed of Craft MPS: "))
-distance = float(input("Enter Light Year(s): "))
+speed = int(input("Speed of Craft MPS: "))
+distance = float(input("Light years: "))
 
-lightYear = distance / (186000 * 31556952)
-Years = scs / lightYear
+mpy = speed * 60 * 60 * 24 * float(365.5)
+lightYear = distance * 5878625370000
 
-print(Years)
+calc = lightYear / mpy
+
+print(calc)
