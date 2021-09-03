@@ -7,6 +7,6 @@ distance = float(input("Light years: "))
 mpy = speed * 60 * 60 * 24 * float(365.5)
 lightYear = distance * 5878625370000
 
-calc = lightYear / mpy
+calc = lightYear // mpy
 
 print(calc)
