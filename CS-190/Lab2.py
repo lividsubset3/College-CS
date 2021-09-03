@@ -12,4 +12,4 @@ lightYear = distance * 5878625370000
 # End Calc
 calc = lightYear // mpy
 
-print(calc)
+print("amount of years: ", calc)
