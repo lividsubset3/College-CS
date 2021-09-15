@@ -24,8 +24,8 @@ elif operator == '/':
 elif operator == '//':
     print(x, "//", y, "=", integerDivision)
 elif operator == '**' or operator == '^':
-    print(x, "**|^", y, "=", modulo)
+    print(x, "**|^", y, "=", exponentiation)
 elif operator == '%':
-    print(x, "%", y, "=", subtraction)
+    print(x, "%", y, "=", modulo)
 else:
     print("Invalid Operation...")
