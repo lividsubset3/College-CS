@@ -11,7 +11,7 @@ if x >= 0 and y >= 0:
     for i in range(z, y + 1):
         print("after integration |", x, "x", i, "=", product)
         product = product + x
-    print(x, "*", y, "=", product)
+    print(x, "*", y, "=", product - y)
 else:
     print()
     print("X or Y value is not positive")
