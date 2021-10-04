@@ -1,14 +1,18 @@
 # Check if its positive
 # Check if its prime
+# Ask again if negative
 
-num = int(input("Input Positive Value: "))
+x = True
 
-if num > 1:
-    for i in range(2, num / 2 + 1):
+while x:
+    num = int(input("Input Positive Value: "))
+
+    for i in range(2, int(num / 2) + 1):
         if (num % i) == 0:
             print(num, "Is Prime!")
+            x = False
             break
         else:
-            print(num, "Is not prime!")
-else:
-    print(num, "Is not positive..")
+            print(num, "Not Prime")
+            x = False
+            break
