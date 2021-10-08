@@ -3,12 +3,15 @@
 # Stores in a list
 # Outputs all words inputted / Output Longest word
 
-words_list = []
+word1 = input("enter a word: ")
+word2 = input("enter a word: ")
+word3 = input("enter a word: ")
+word4 = input("enter a word: ")
+word5 = input("enter a word: ")
 
-name = str(input("Add a Name:\n"))
-name.insert(words_list)
-print(words_list)
+word_list = [word1, word2, word3, word4, word5]
+longest_word = max(word_list, key=len)
 
-# def find_longest_word(word_list):
-#    longest_word = max(word_list, key=len)
-#    return longest_word
+for words in word_list:
+    print(words)
+print(longest_word, "Longest word")
