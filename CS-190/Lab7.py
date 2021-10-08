@@ -3,12 +3,12 @@
 # Stores in a list
 # Outputs all words inputted / Output Longest word
 
-input_string = input("Enter all family members name separated by space  ")
-# Split string into words
-family_list = input_string.split(" ")
+words_list = []
 
-print("\n")
-# Iterate a list
-print("Printing all family member names")
-for name in family_list:
-    print(name)
+name = str(input("Add a Name:\n"))
+name.insert(words_list)
+print(words_list)
+
+# def find_longest_word(word_list):
+#    longest_word = max(word_list, key=len)
+#    return longest_word
