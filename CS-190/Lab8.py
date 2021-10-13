@@ -13,8 +13,8 @@ def volume_box(length, width, height):
     print("Volume:", volume)
 
 
-def volume_sphere(radius, height):
-    volume = (4 / 3) * math.pi * (math.pow(radius, 3)) * height
+def volume_sphere(radius):
+    volume = (4 / 3) * math.pi * (math.pow(radius, 3))
     print("Volume:", volume)
 
 
@@ -48,8 +48,7 @@ while True:
     if select_menu == '2':
         print("=== Volume of a Sphere ===")
         x = int(input("Input Radius: "))
-        y = int(input("Input Height: "))
-        volume_sphere(x, y)
+        volume_sphere(x)
         print()
 
     if select_menu == '3':
