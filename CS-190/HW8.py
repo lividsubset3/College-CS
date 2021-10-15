@@ -42,4 +42,3 @@ intr = int(input("Enter number of interceptions thrown: "))
 print("================")
 
 rating(calcA(comp, att), calcB(yds, att), calcC(td, att), calcD(intr, att))
-
