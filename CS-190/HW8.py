@@ -26,7 +26,7 @@ def calcD(x, y):
 
 def rating(a, b, c, d):
     equation = ((a + b + c + d) / 6) * 100
-    print("QB rating", equation)
+    print("QB rating", round(equation, 1))
 
 
 print("Welcome to the NFL QB passer rating calculator!")
@@ -39,6 +39,6 @@ yds = int(input("Enter total passing yards: "))
 td = int(input("Enter total passing touchdowns: "))
 intr = int(input("Enter number of interceptions thrown: "))
 
-rating(calcA(comp, att), calcB(yds, att), calcC(td, att), calcD(intr, att))
-
 print("================")
+
+rating(calcA(comp, att), calcB(yds, att), calcC(td, att), calcD(intr, att))
