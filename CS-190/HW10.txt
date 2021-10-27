@@ -1,0 +1,10 @@
+triangle 42 108 12 blue
+rectangle 123 50 44 11 black
+circle 259 400 32 yellow
+circle 16 209 15 purple
+square 50 15 44 purple
+triangle 259 362 32 green
+triangle 69 203 25 purple
+triangle 174 392 10 blue
+rectangle 394 230 49 32 yellow
+square 378 152 10 yellow
