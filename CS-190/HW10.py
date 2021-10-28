@@ -22,21 +22,31 @@ def triangle(x, y, size, color):
 # ===============================================================================================
 
 def go():
-    # example code that draws a red circle with radius 50 at x=200, y=100
-    circle(200, 100, 50, 'red')
-    init = input("Input File: ")
+    init = 'HW10.txt'
+    # init = input("Input File: ")
     with open(init) as f:
         for line in f:
-            r_str = line.rstrip()
-            L = r_str.split(' ')
-            print(L)
+            L = line.split(' ')
             for shape_type in L:
                 if shape_type == 'triangle':
-                    x = int(line[9, 10])
-                    y = int()
-                    size =
-                    color =
-
+                    x = int(L[1])
+                    y = int(L[2])
+                    size = int(L[3])
+                    color = str(L[4])
+                    triangle(x, y, size, color)
+                elif shape_type == 'rectangle':
+                    x = int(L[1])
+                    y = int(L[2])
+                    width = int(L[3])
+                    height = int(L[4])
+                    color = str(L[5])
+                    rectangle(x, y, width, height, color)
+                elif shape_type == 'circle':
+                    x = int(L[1])
+                    y = int(L[2])
+                    radius = int(L[3])
+                    color = str(L[4])
+                    circle(x, y, radius, color)
 
 
 # do not modify code below this line!
