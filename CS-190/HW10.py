@@ -23,8 +23,8 @@ def triangle(x, y, size, color):
 
 def go():
     try:
-        # init = input("Input File: ")
-        init = "HW10.txt"
+        init = input("Input File: ")
+        # init = "HW10.txt"
         with open(init) as f:
             for line in f:
                 L = line.split(' ')
@@ -33,34 +33,37 @@ def go():
                         x = int(L[1])
                         y = int(L[2])
                         size = int(L[3])
-                        color = str(L[4])
+                        color = L[4].rstrip()
                         triangle(x, y, size, color)
                     elif shape_type == 'rectangle':
                         x = int(L[1])
                         y = int(L[2])
                         width = int(L[3])
                         height = int(L[4])
-                        color = str(L[5])
+                        color = L[5].rstrip()
                         rectangle(x, y, width, height, color)
                     elif shape_type == 'circle':
                         x = int(L[1])
                         y = int(L[2])
                         radius = int(L[3])
-                        color = str(L[4])
+                        color = L[4].rstrip()
                         circle(x, y, radius, color)
                     elif shape_type == 'square':
                         x = int(L[1])
                         y = int(L[2])
                         width = int(L[3])
-                        height = int(L[4])
-                        color = f"'{L[5]}'"
+                        height = int(L[3])
+                        color = L[4].rstrip()
                         rectangle(x, y, width, height, color)
-    except EXCEPTION:
+    except Exception as e:
+        print(e)
         print("Error | 404 | File Not found")
 
 
 # do not modify code below this line!
 # ===============================================================================================
+
+
 if __name__ == '__main__':
     go()
     root.mainloop()
