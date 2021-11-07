@@ -15,7 +15,11 @@ try:
         f.write("255" + '\n')
 
         for i in range(int(_PixelDim)):
-            f.write(str(random.randint(0, 255)) + '\n')
+            f.write(str('255') + '\n')
+            f.write(str('200') + '\n')
+            f.write(str('150') + '\n')
+            f.write(str('100') + '\n')
+            f.write(str('50') + '\n')
 
 except Exception as e:
     print(e)
