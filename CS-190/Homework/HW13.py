@@ -6,40 +6,48 @@ root = Tk()
 window = Canvas(root, width=500, height=500)
 window.pack()
 
-_Size = int(input("Size of square: "))
-_Row = int(input("Enter width of board: "))
-_Column = int(input("Enter height of board: "))
-
+_Size = int(input('Enter Square Size: '))
+_Row = 500
+_Column = 500
 _Color = 'white'
 
 while True:
     if _Size <= 0:
-        print("Error: Number Below/Equal to 0 ~ Try again...")
-        size = int(input("Enter Square Size: "))
-    elif _Row <= 0:
-        print("Error: Number Below/Equal to 0 ~ Try again...")
-        row = int(input("Enter Board Width: "))
-    elif _Column <= 0:
-        print("Error: Number Below/Equal to 0 ~ Try again...")
-        column = int(input("Enter Board Height: "))
+        _Size = int(input('Enter Square Size: '))
+        continue
     break
 
+print("Window Being Made...")
 for y in range(_Column):
-    for x in range(_Row):
-        x1 = x * _Size
-        y1 = y * _Size
-        x2 = x1 + _Size
-        y2 = y1 + _Size
-        window.create_rectangle((x1, y1, x2, y2), fill=_Color)
+    if (_Row % 2) == 0:
+        for x in range(_Row):
+            x1 = x * _Size
+            y1 = y * _Size
+            x2 = x1 + _Size
+            y2 = y1 + _Size
+            window.create_rectangle((x1, y1, x2, y2), fill=_Color)
 
-        if _Color == 'black':
-            _Color = 'white'
+            if _Color == 'black':
+                _Color = 'white'
+            else:
+                _Color = 'black'
         else:
-            _Color = 'black'
+            for x in range(_Row):
+                x1 = x * _Size
+                y1 = y * _Size
+                x2 = x1 + _Size
+                y2 = y1 + _Size
+                window.create_rectangle((x1, y1, x2, y2), fill=_Color)
+
+                if _Color == 'white':
+                    _Color = 'black'
+                else:
+                    _Color = 'white'
 
     if _Color == 'black':
         _Color = 'white'
     else:
         _Color = 'black'
+print('Window Made!')
 
 root.mainloop()
