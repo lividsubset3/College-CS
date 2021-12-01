@@ -1,4 +1,4 @@
-# Create a cavas with 4 shapes
+# Create a canvas with 4 shapes
 # Line, Oval, Rectangle, Triangle
 # (y, x)
 
