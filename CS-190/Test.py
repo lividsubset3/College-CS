@@ -1,7 +1,6 @@
+import random
 
-tank_size = int(input("How large is your tank: "))
-gas_price = float(input("Hiw much is gas (in x dollars and y cents, enter in for x.y):"))
+while True:
+    rand = random.randint(-9, -1)
 
-cost_to_fill = tank_size * gas_price
-
-print("it will cost $" + str(cost_to_fill) + " to fill your " + str(tank_size) + " gallon tank at $" + str(gas_price) + " per gallon.")
+print(rand)
