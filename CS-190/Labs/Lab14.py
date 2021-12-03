@@ -5,7 +5,9 @@ from tkinter import *
 
 window_h = 500  # Y
 window_w = 500  # X
-rand = random.randrange(-8, 8)
+_posRand = random.randint(1, 9)
+_negRand = random.randint(-9, -1)
+_Rand = random.randint(100, 400)
 
 root = Tk()
 window = Canvas(root, width=window_w, height=window_h)
@@ -13,9 +15,9 @@ window.pack()
 
 block = window.create_rectangle(0, 0, 50, 50, fill='black')
 
-window.move(block, 225, 225)
-y = 5
-x = 5
+window.move(block, 120, 200)
+y = _Rand
+x = _Rand
 
 
 def _WallDetection():
@@ -24,14 +26,14 @@ def _WallDetection():
 
     window.move(block, x, y)
     if y1 >= 500:
-        y = -4
+        y = -5
     if x1 >= 500:
-        x = -4
-    if y1 <= 0:
-        y = 4
+        x = -3
+    if y0 <= 0:
+        y = 9
     if x0 <= 0:
         x = 4
-    root.after(35, _WallDetection)
+    root.after(60, _WallDetection)
 
 
 root.after(35, _WallDetection)
