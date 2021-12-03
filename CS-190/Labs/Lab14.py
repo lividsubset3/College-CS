@@ -7,7 +7,7 @@ window_h = 500  # Y
 window_w = 500  # X
 _posRand = random.randint(1, 9)
 _negRand = random.randint(-9, -1)
-_Rand = random.randint(100, 400)
+_Rand = random.randint(100, 300)
 
 root = Tk()
 window = Canvas(root, width=window_w, height=window_h)
@@ -16,8 +16,8 @@ window.pack()
 block = window.create_rectangle(0, 0, 50, 50, fill='black')
 
 window.move(block, 120, 200)
-y = _Rand
-x = _Rand
+y = 2
+x = 2
 
 
 def _WallDetection():
@@ -26,13 +26,13 @@ def _WallDetection():
 
     window.move(block, x, y)
     if y1 >= 500:
-        y = -5
+        y = _negRand
     if x1 >= 500:
-        x = -3
+        x = _negRand
     if y0 <= 0:
-        y = 9
+        y = _posRand
     if x0 <= 0:
-        x = 4
+        x = _posRand
     root.after(60, _WallDetection)
 
 
