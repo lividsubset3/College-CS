@@ -65,7 +65,7 @@ select * from customers;
 create table orders (
 	orderId int primary key,
     customerId varchar(8),
-    orderDate varchar(10)
+    orderDate date
 );
 
 insert into orders
@@ -119,8 +119,8 @@ select * from orderLines;
 create table products (
 	productId varchar(4) primary key,
     productName varchar(17),
-    weight int,
-    price int
+    weight double,
+    price double
 );
 
 insert into products
