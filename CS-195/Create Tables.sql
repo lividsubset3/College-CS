@@ -131,3 +131,19 @@ insert into products
 values ('MAXI', 'Large product', 8.00 , 15.99);
 
 select * from products;
+
+#1 
+select fname from customerContacts;
+
+#2
+select * from customerContacts,
+fname as 'First Name',
+lname as 'Last Name',
+from customerContacts;
+
+#3
+select * from customerContacts
+order by customerContactId;
+
+#4
+show tables;
