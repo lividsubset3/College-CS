@@ -5,11 +5,15 @@
     Patrick Rakowicz
 */
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 
 int main() {
     int m1, m2;
+    srand(time(NULL));
 
     cout << "Input two integers in increasing order:";
     cin >> m1 >> m2;
@@ -18,9 +22,10 @@ int main() {
     cout << "Expected:" << endl;
     cout << "10 Random integers in the range [" << m1 << " , " << m2 << "]" << endl;
 
-    cout << "Actual:" << endl;
-    //  TODO
-    //      Randomly generate 10 integers from the two given integers
+    for (int i=1; i<=10;i++) {
+        cout << (rand() % (m2 - m1+1)) + m1 << " ";
+    }
+    cout << endl;
 
     cout << "Expected:" << endl;
     cout << "average value of the integers" << endl;
