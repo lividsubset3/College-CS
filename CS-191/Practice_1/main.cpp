@@ -2,10 +2,9 @@
     191
     Practice 1
     main.cpp
-    Patrick Rakowicz
+    Patrick Rakowicz | Caleb Domenico
 */
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
@@ -18,12 +17,24 @@ int main() {
     cout << "Input two integers in increasing order:";
     cin >> m1 >> m2;
 
+    float value, maxVal = m1, minVal = m2;
+    float sum = 0;
+
     cout << "Generating random integers" << endl;
     cout << "Expected:" << endl;
     cout << "10 Random integers in the range [" << m1 << " , " << m2 << "]" << endl;
 
     for (int i=1; i<=10;i++) {
-        cout << (rand() % (m2 - m1+1)) + m1 << " ";
+        value = (rand() % (m2 - m1 + 1));
+        cout << value << " ";
+
+        sum += value;
+
+        if (value < minVal) {
+            minVal = value;
+        } else if (value > maxVal) {
+            maxVal = value;
+        }
     }
     cout << endl;
 
@@ -32,8 +43,7 @@ int main() {
     cout << "maximum value of the integers" << endl;
     cout << "minimum value of the integers" << endl;
     cout << "Actual:" << endl;
-    //  TODO
-    //      print Average Values
-    //      print Maximum Values
-    //      print Minimum Values
+    cout << double (sum/10) << endl;
+    cout << double (maxVal) << endl;
+    cout << double (minVal) << endl;
 }
