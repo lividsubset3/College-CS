@@ -32,16 +32,20 @@ int main() {
     cout << endl;
 
     // Loop 2
-    int m2, n2;
+    int m2, n2, a, b;
 
     cout << "Generating Numbers from m to n";
     cout << "Enter m and n:";
     cin >> m2 >> n2;
+    if (m2 < n2) {
+        n2 = a;
+        m2 = b;
+    }
 
-    cout << "Expected: odd integers from " << m2 << " to " << n2 << endl;
+    cout << "Expected: odd integers from " << a << " to " << b << endl;
     cout << "Actual: ";
 
-    for (int i = m2; i < (n2 + 1); ++i) {
+    for (int i = a; i < (b + 1); ++i) {
         if (i % 2 != 0) {
             cout << i << " ";
         }
