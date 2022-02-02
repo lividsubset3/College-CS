@@ -14,7 +14,7 @@ int main() {
     int m1, n1, count;
     float sum = 0;
 
-    cout << "Generating Numbers from m to n";
+    cout << "Generating Numbers from m to n" << endl;
     cout << "Enter m and n:";
     cin >> m1 >> n1;
 
@@ -34,12 +34,16 @@ int main() {
     // Loop 2
     int m2, n2, a, b;
 
-    cout << "Generating Numbers from m to n";
+    cout << "Generating Numbers from m to n" << endl;
     cout << "Enter m and n:";
     cin >> m2 >> n2;
-    if (m2 < n2) {
-        n2 = a;
-        m2 = b;
+
+    if (m2 > n2) {
+        a = n2;
+        b = m2;
+    } else {
+        a = m2;
+        b = n2;
     }
 
     cout << "Expected: odd integers from " << a << " to " << b << endl;
