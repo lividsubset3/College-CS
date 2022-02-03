@@ -27,9 +27,7 @@ int main() {
     for (int i=1; i<=10;i++) {
         value = (rand() % (m2 - m1 + 1));
         cout << value << " ";
-
         sum += value;
-
         if (value < minVal) {
             minVal = value;
         } else if (value > maxVal) {
