@@ -3,7 +3,7 @@
    Patrick Rakowicz | Caleb Domenico
    Basic Queries
 */
-USE Create_Tables;
+use customersAndProducts; 
 
 #1 
 show columns from customerContacts;
