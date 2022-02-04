@@ -11,29 +11,29 @@
 using namespace std;
 
 int main() {
-//    // Loop 1
-//    int  input, count = 0;
-//    float maxVal = 100, minVal = 0;
-//    double sum = 0;
-//
-//    while (true) {
-//        count = count + 1;
-//        cout << "Enter a positive value:";
-//        cin >> input;
-//        sum += input;
-//
-//        if (input > maxVal)
-//            maxVal = input;
-//        if (input < minVal)
-//            minVal = input;
-//
-//        if (sum > 100 || input == 0)
-//            break;
-//    }
-//
-//    cout << "Max Value: " << maxVal << endl;
-//    cout << "Min Value: " << minVal << endl;
-//    cout << "Average Value: " << setprecision(1) << fixed << sum / count << endl;
+    // Loop 1
+    int  input, count = 0;
+    float maxVal = 100, minVal = 0;
+    double sum = 0;
+
+    while (true) {
+        count = count + 1;
+        cout << "Enter a positive value:";
+        cin >> input;
+        sum += input;
+
+        if (input > maxVal)
+            maxVal = input;
+        if (input < minVal)
+            minVal = input;
+
+        if (sum > 100 || input == 0)
+            break;
+    }
+
+    cout << "Max Value: " << maxVal << endl;
+    cout << "Min Value: " << minVal << endl;
+    cout << "Average Value: " << setprecision(1) << fixed << sum / count << endl;
 
     // Loop 2
 
