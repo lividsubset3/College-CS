@@ -9,7 +9,7 @@
 drop database if exists customersAndProducts;   # perhaps left over from previous
 create database customersAndProducts;   -- note the blank after --
 use customersAndProducts;   # switch to the customerAndProducts database
-drop table if exists customerContacts; #left over?
+drop table if exists contactInfo; #left over?
 
 create table customerContacts
 (
