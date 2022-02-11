@@ -69,7 +69,14 @@ void toLowerCase(string &s) {
 
 bool isAllCaps(string s) {
     //return true if s is all capital ASCII letters, false otherwise; take a look at asciitable.com
+    for (int i = 0; i < s; i++) {
+        if (isupper (s[i]))
+            cout << "true";
+        else
+            cout << "false";
+    }
 }
+
 
 //void toProperCaps(string &s) {
 //    //modifies s so that the first character and any other characters which are
@@ -87,4 +94,5 @@ int main() {
     cout << "Fixed Caps: " << fixCaps("tEST") << endl;
     cout << "All Lower: " << a << endl;
     //cout << "Factorial :" << xToY(12, 1) << endl;
+    cout << "Check capatal: " << boolalpha << isAllCaps("teST") << endl;
 }
