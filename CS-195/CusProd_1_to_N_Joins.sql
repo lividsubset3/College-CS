@@ -60,4 +60,12 @@ select customerContacts.customerId, orderId, email
 from customerContacts 
 join orders
 where customerContacts.customerId = orders.customerId
-group by email; 
+order by customerContacts.customerId;
+
+#10
+# Basic query grab of the customers information as well as what they bought when they bought it and how many of they bought
+select fname as "First Name", lname as "Last Name", email as "Email",  orderDate as "Date", productId as "Type of P", quantity as "Quantity"
+from customerContacts 
+join orders join orderLines
+where orders.orderId = orderLines.orderId and customerContacts.customerId = orders.customerId
+order by orderDate desc; 
