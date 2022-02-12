@@ -52,9 +52,6 @@ void toLowerCase(string &s) {
     }
 }
 
-// TODO
-//  Work on factorial
-//  cant change int y to long double y
 int xToY(int x, int y) {
     //uses a loop to calculate x^y and return it; assume y >= 0
     if (x < 0)
@@ -95,6 +92,6 @@ int main() {
     cout << "Is N Even?: " << boolalpha << isEven(2) << endl;
     cout << "Fixed Caps: " << fixCaps("tEST") << endl;
     cout << "All Lower: " << a << endl;
-    cout << "Factorial of :" << x << " is " << xToY(x, 1) << endl;
+    cout << "Factorial of: " << x << " is " << xToY(x, 1) << endl;
     cout << "Check capital: " << boolalpha << isAllCaps("TEST") << endl;
 }
