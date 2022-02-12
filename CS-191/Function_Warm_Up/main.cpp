@@ -55,44 +55,46 @@ void toLowerCase(string &s) {
 // TODO
 //  Work on factorial
 //  cant change int y to long double y
-/*int xToY(int x, long double y) {
+int xToY(int x, int y) {
     //uses a loop to calculate x^y and return it; assume y >= 0
     if (x < 0)
-        cout << "Error! Factorial of a negative number doesn't exist.";
+        cout << "Factorial of negative is not possible! Error!";
     else {
-        for(int i = 1; i <= x; ++i) {
+        for (int i = 1; i <= x; ++i) {
             y *= i;
         }
         return y;
     }
-}*/
+}
 
 bool isAllCaps(string s) {
     //return true if s is all capital ASCII letters, false otherwise; take a look at asciitable.com
-    for (int i = 0; i < s; i++) {
-        if (isupper (s[i]))
-            cout << "true";
+    for (char i: s)
+        if (isupper(i))
+            return true;
         else
-            cout << "false";
-    }
+            return false;
 }
 
 
-//void toProperCaps(string &s) {
-//    //modifies s so that the first character and any other characters which are
-//    //after a blank are capitalized, all other letters are lowercased. This is a
-//    //pass by reference.
-//}
+void toProperCaps(string &s) {
+    //modifies s so that the first character and any other characters which are
+    //after a blank are capitalized, all other letters are lowercased. This is a
+    //pass by reference.
+}
 
 int main() {
+    // Input Parameters
     string a = "TEST";
     toLowerCase(a);
+    int x = 12;
 
+    //Function Execution
     cout << "Largest is: " << maxIntVal(4, 2) << endl;
     cout << "Sum count: " << sumN(10) << endl;
     cout << "Is N Even?: " << boolalpha << isEven(2) << endl;
     cout << "Fixed Caps: " << fixCaps("tEST") << endl;
     cout << "All Lower: " << a << endl;
-    //cout << "Factorial :" << xToY(12, 1) << endl;
-    cout << "Check capatal: " << boolalpha << isAllCaps("teST") << endl;
+    cout << "Factorial of :" << x << " is " << xToY(x, 1) << endl;
+    cout << "Check capital: " << boolalpha << isAllCaps("TEST") << endl;
 }
