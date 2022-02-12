@@ -78,12 +78,18 @@ void toProperCaps(string &s) {
     //modifies s so that the first character and any other characters which are
     //after a blank are capitalized, all other letters are lowercased. This is a
     //pass by reference.
+    for (char & i : s) {
+        i = tolower(i);
+    }
+    s[0] = toupper(s[0]);
 }
 
 int main() {
     // Input Parameters
     string a = "TEST";
+    string b = "tEsT FuNcTiOn";
     toLowerCase(a);
+    toProperCaps(b);
     int x = 12;
 
     //Function Execution
@@ -94,4 +100,5 @@ int main() {
     cout << "All Lower: " << a << endl;
     cout << "Factorial of: " << x << " is " << xToY(x, 1) << endl;
     cout << "Check capital: " << boolalpha << isAllCaps("TEST") << endl;
+    cout << "Proper Caps: " << b << endl;
 }
