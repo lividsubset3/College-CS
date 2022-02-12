@@ -56,3 +56,8 @@ where orderLines.orderid = orders.orderId
 and orderDate > "2006-02-05";
 
 #9
+select customerContacts.customerId, orderId, email 
+from customerContacts 
+join orders
+where customerContacts.customerId = orders.customerId
+group by email; 
