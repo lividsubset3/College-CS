@@ -106,7 +106,7 @@ values (5, 4, 'MINI', 16);
 insert into orderLines
 values (6, 4, 'MAXI', 10);
 insert into orderLines
-values (7, 5, 'MINI', 10);
+values (7, 5, 'MIDI', 10);
 insert into orderLines
 values (8, 5, 'MAXI', 10);
 insert into orderLines
