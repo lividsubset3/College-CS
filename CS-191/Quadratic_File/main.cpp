@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -15,60 +16,43 @@ void greeting() {
     cout << "This will read from a file..." << endl;
 }
 
-int readFile(float &a, float &b, float &c, ifstream &file) {
-    float x, y, z;
-    // string line;
-    if (file.is_open()) {
-        while (file >> x >> y >> z) {
-            a = x;
-            b = y;
-            c = z;
-        }
-    }
+double readFile(double &a, double &b, double &c, ifstream &file) {
+    file >> a >> b >> c;
 }
 
-void disc(int a, int b, int c) {
+double disc(int a, int b, int c) {
+    double r = (b * b) - (4 * a * c);
+    return r;
+}
 
+double calcRoot1(int a, int b, int c) {
+    double x1 = ((-1 * b) + sqrt((b * b) - 4 * a * c)) / (2.0 * a);
+    return x1;
+}
+
+double calcRoot2(int a, int b, int c) {
+    double x2 = ((-1 * b) - sqrt((b * b) - 4 * a * c)) / (2.0 * a);
+    return x2;
 }
 
 int main() {
-    float a, b, c;
-    // Greet User
+    double a, b, c;
+    double root1, root2;
+
     greeting();
 
-    //open the file
     ifstream dataFile("data.txt");
-    readFile(a, b, c, dataFile);
-    cout << a << " " << b << " " << c << endl;
 
-
-/*
-
-    while (not eof) {
-
-        // Is a function
-        readFile(a, b, c, theFile)
-
-        // disc Is a function
+    while (!dataFile.eof()) {
+        readFile(a, b, c, dataFile);
         if (disc(a, b, c) >= 0) {
-
-            // output “The roots are – “;
-
-            // root1 = calcRoot1(a, b, c) --calcRoot1 is a function
-
-            // root2 = calcRoot2(a, b, c) --calcRoot2 is a function
-
-            //output root1 & root2
-
+            root1 = calcRoot1(a, b, c);
+            root2 = calcRoot2(a, b, c);
+            cout << "The roots are | " << root1 << " and " << root2 << endl;
         } else {
-
-            // output “No real roots”
-
+            cout << "There are no real roots" << endl;
         }
-
-    } //while
-*/
-    // close the file
+    }
     dataFile.close();
 }
 
