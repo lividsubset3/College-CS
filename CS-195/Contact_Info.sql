@@ -1,3 +1,8 @@
+/* 
+   CS 195
+   Patrick Rakowicz
+   Contact Info
+*/
 drop database if exists contactInfo;
 create database contactInfo;
 use contactInfo;

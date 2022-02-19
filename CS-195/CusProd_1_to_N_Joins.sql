@@ -1,3 +1,8 @@
+/* 
+   CS 195
+   Patrick Rakowicz
+   Contact Info 1 to N
+*/
 use customersAndProducts;
 
 #1
