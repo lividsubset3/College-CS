@@ -2,7 +2,7 @@
     191
     Quadratic File
     main.cpp
-    Patrick Rakowicz | Caleb Domenico
+    Patrick Rakowicz
 */
 #include <iostream>
 #include <fstream>
