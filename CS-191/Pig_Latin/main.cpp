@@ -21,13 +21,36 @@ void displayResultString(string);
 
 bool isConsonant(char ch) {
     //return true if ch is a consonant, false otherwise; be smart about this function; don't write 20 or comparisons
+    char ch2 = tolower(ch);
+    switch(ch2) {
+        case 'a' :
+            return false;
+        case 'e' :
+            return false;
+        case 'i' :
+            return false;
+        case 'o' :
+            return false;
+        case 'u' :
+            return false;
+        default :
+            return true;
+    }
+
 }
 
 bool isVowel(char ch) {
     //returns true if ch is a vowel, false otherwise
+    string str = "aeiouAEIOU";
+    return (str.find(ch) != string::npos);
 }
 
-int findFirstVowel(string s) {
+int main() {
+    cout << boolalpha << isConsonant('y') << endl;
+    cout << boolalpha << isVowel('e');
+}
+
+/*int findFirstVowel(string s) {
     //return location of the first vowel in the string (if present), return string::npos if no vowel is in the string
 }
 
@@ -67,5 +90,5 @@ int main() {
         resultString += pigLatinize(firstWord);
     } //while
     displayResultString(resultString);
-} //main
+} //main*/
 
