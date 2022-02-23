@@ -29,8 +29,7 @@ void displayResultString(string);
 
 bool isConsonant(char ch) {
     //return true if ch is a consonant, false otherwise; be smart about this function; don't write 20 or comparisons
-    char ch2 = tolower(ch);
-    switch (ch2) {
+    switch (ch) {
         case 'a' :
             return false;
         case 'e' :
@@ -46,22 +45,21 @@ bool isConsonant(char ch) {
     }
 }
 
-bool isVowel(char ch) {
-    //returns true if ch is a vowel, false otherwise
-    string str = "aeiouAEIOU";
-    return (str.find(ch) != string::npos);
+bool isVowel(char c) {
+    c = tolower(c);
+    if (c == 'a' || c == 'e' || c == 'i'
+        || c == 'o' || c == 'u')
+        return true;
+    return false;
 }
 
 int findFirstVowel(string s) {
-
-    string str = "aeiou";
+    string str = "aeiouAEIOU";
     if (str.find(s)) {
         return str.find(s);
-    } else {
-        return string::npos;
     }
-    //return location of the first vowel in the string (if present), return string::npos if no vowel is in the string
 }
+//return location of the first vowel in the string (if present), return string::npos if no vowel is in the string
 
 string getOriginalString() {
     string s;
@@ -71,7 +69,7 @@ string getOriginalString() {
 }
 
 void displayResultString(string r) {
-    cout << r;
+    cout << r << endl;
 }
 
 string getFirstWord(string s) {
