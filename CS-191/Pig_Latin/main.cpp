@@ -11,18 +11,26 @@
 using namespace std;
 
 bool isConsonant(char);
+
 bool isVowel(char);
+
 int findFirstVowel(string);
+
 string getOriginalString();
+
 string getFirstWord(string);
+
 string eraseFirstWord(string);
+
 string pigLatinize(string);
+
 void displayResultString(string);
+
 
 bool isConsonant(char ch) {
     //return true if ch is a consonant, false otherwise; be smart about this function; don't write 20 or comparisons
     char ch2 = tolower(ch);
-    switch(ch2) {
+    switch (ch2) {
         case 'a' :
             return false;
         case 'e' :
@@ -36,7 +44,6 @@ bool isConsonant(char ch) {
         default :
             return true;
     }
-
 }
 
 bool isVowel(char ch) {
@@ -45,28 +52,37 @@ bool isVowel(char ch) {
     return (str.find(ch) != string::npos);
 }
 
-int main() {
-    cout << boolalpha << isConsonant('y') << endl;
-    cout << boolalpha << isVowel('e');
-}
+int findFirstVowel(string s) {
 
-/*int findFirstVowel(string s) {
+    string str = "aeiou";
+    if (str.find(s)) {
+        return str.find(s);
+    } else {
+        return string::npos;
+    }
     //return location of the first vowel in the string (if present), return string::npos if no vowel is in the string
 }
 
 string getOriginalString() {
-    //ask the user for the string, read it (it may include blanks of course) and return it
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    return s;
 }
 
 void displayResultString(string r) {
-    //output the result of the translation
+    cout << r;
 }
 
 string getFirstWord(string s) {
+    string first = s.substr(0, s.find(" "));
+    return first;
     //return the first word, without the blank (at the end);  if there is only 1 word then return it
 }
 
 string eraseFirstWord(string s) {
+    string first = s.substr(0, s.find(" "));
+    return first;
     //return the string with the first word, and the blank after it (if present), removed
 }
 
@@ -82,7 +98,7 @@ string pigLatinize(string s) {
 }
 
 int main() {
-    string originalString, resultString = "", firstWord; //resultString is empty
+    string originalString, resultString = " ", firstWord; //resultString is empty
     originalString = getOriginalString();
     while (!originalString.empty()) {
         firstWord = getFirstWord(originalString);
@@ -90,5 +106,5 @@ int main() {
         resultString += pigLatinize(firstWord);
     } //while
     displayResultString(resultString);
-} //main*/
+} //main
 
