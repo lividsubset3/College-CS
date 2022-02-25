@@ -1,8 +1,8 @@
 /*
-CS 191
-Arrays and Functions
-main.cpp
-Emmet Blassingame
+    CS 191
+    Arrays and Functions
+    main.cpp
+    Patrick Rakowicz
 */
 
 #include <iostream>
