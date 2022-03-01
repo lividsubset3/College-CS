@@ -1,5 +1,8 @@
-//
-// Created by Livid on 1/03/2022.
-//
+/*
+    191
+    Binary Search Trace
+    main.cpp
+    Patrick Rakowicz
+*/
 
-#include "main.h"
+
