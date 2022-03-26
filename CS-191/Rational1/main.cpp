@@ -1,6 +1,7 @@
 /*
     Patrick Rakowicz
     CS 191
+    main.cpp
     Rational 1
 
 Write a single file program to prototype, define and then test a class for rational numbers.
