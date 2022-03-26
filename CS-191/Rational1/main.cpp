@@ -19,6 +19,7 @@ public:
         num = 0;
         den = 1;
     };
+
     Rational(int n, int d) {
         num = n;
         if (d == 0) {
@@ -29,17 +30,28 @@ public:
     };
 
     void load();
+
     void display();
+
     void set(int, int);
 
     int getDen();
+
     int getNum();
+
     double getApprox();
 
     void add(Rational);
+
     void sub(Rational);
+
     void multi(Rational);
+
     void div(Rational);
+
+    friend Rational add(Rational, Rational);
+
+    friend bool equal(Rational, Rational);
 };
 
 void Rational::load() {
@@ -68,19 +80,76 @@ int Rational::getNum() {
     return num;
 }
 
+double Rational::getApprox() {
+    return (double) num / (double) den;
+}
+
+void Rational::add(Rational r) {
+    int n = num * r.den + r.num * den;
+    int d = den * r.den;
+}
+
+void Rational::sub(Rational r) {
+    int n = num * r.den - r.num * den;
+    int d = den * r.den;
+}
+
+void Rational::multi(Rational r) {
+    int n = num * r.num;
+    int d = den * r.den;
+
+    set(n, d);
+}
+
+void Rational::div(Rational r) {
+    int n = num * r.den;
+    int d = den * r.num;
+}
+
+Rational add(Rational r1, Rational r2) {
+    Rational res;
+    int n = (r1.num) * (r2.den) + (r2.num) * (r1.den);
+    int d = (r1.den) * (r2.den);
+
+    res.set(n, d);
+    return res;
+}
+
+bool equal(Rational r1, Rational r2) {
+    return (r1.num * r2.den == r2.num * r1.den);
+}
+
 int main() {
-    Rational test1 = Rational();
-    Rational test2 = Rational(3, 2);
-    Rational test3 = Rational();
+    Rational test1(2, 3);
+    Rational test2(-8, 5);
+    Rational test3(0, 20);
+    Rational test4 = Rational();
+    Rational test5 = Rational();
 
-    test1.display();
-    test2.display();
+    test4.set(5, 8);
+    test4.display();
 
-//    test1.load();
-//    test1.display();
+    test5.load();
+    test5.display();
 
-    test3.set(5, 2);
-    test3.display();
+    cout << test1.getNum() << "\n";
+    cout << test2.getDen() << "\n";
+    cout << test3.getApprox() << "\n";
 
-    cout << test3.getDen();
+    test1.add(test2);
+    cout << test1.getNum() << " | " << test1.getDen() << "\n";
+
+    test1.sub(test3);
+    cout << test1.getNum() << " | " << test1.getDen() << "\n";
+
+    test1.multi(test1);
+    cout << test1.getNum() << " | " << test1.getDen() << "\n";
+
+    test1.div(test1);
+    cout << test1.getNum() << " | " << test1.getDen() << "\n";
+
+    Rational r4 = add(test1, test2);
+    cout << r4.getNum() << " | " << r4.getDen() << "\n";
+
+    cout << boolalpha << equal(test1, test2) << "\n";
 }
