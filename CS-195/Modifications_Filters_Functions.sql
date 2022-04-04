@@ -26,3 +26,9 @@ from customerContacts
 where fname like binary 'A%';
 
 #2
+
+#7
+select curdate();
+SELECT DATE_FORMAT('2011-3-7', '%a / %b') AS Result;
+
+# char_length(lname) < 8
