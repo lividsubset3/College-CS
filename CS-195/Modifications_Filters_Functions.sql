@@ -26,6 +26,9 @@ from customerContacts
 where fname like binary 'A%';
 
 #2
+select distinct email
+from customerContacts
+where email not like '%.com%';
 
 #7
 select curdate();
