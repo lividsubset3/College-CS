@@ -17,6 +17,7 @@ class LinkedList {
         LinkedList();
         void addToTop(int);
         void display();
+        int countPos();
 };
 
 
