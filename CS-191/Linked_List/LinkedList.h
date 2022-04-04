@@ -7,17 +7,22 @@
 
 struct Node {
     int data;
-    Node * next;
+    Node *next;
 };
 
 class LinkedList {
-    private:
-        Node * top;
-    public:
-        LinkedList();
-        void addToTop(int);
-        void display();
-        int countPos();
+private:
+    Node *top;
+    int size;
+public:
+    LinkedList();
+
+    void addToTop(int);
+    int addToBottom(int);
+    int getSize();
+
+    void display();
+    int countPos();
 };
 
 

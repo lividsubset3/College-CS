@@ -12,6 +12,8 @@ int main() {
     l1.addToTop(14);        // Add to top of list
     l1.addToTop(-5);
     l1.addToTop(22);
+    l1.addToBottom(22);
     l1.display();
-    cout << l1.countPos() << "\n"
+    cout << l1.getSize() << "\n";
+    cout << l1.countPos() << "\n";
 }
