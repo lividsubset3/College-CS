@@ -1,7 +1,8 @@
 /* 
    CS 195
-   Patrick Rakowicz
    Modifications Filters Functions
+   Modifications_Filter_Functions.sql
+   Patrick Rakowicz
 */
 use customersAndProducts;
 
