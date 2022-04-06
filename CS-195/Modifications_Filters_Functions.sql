@@ -50,14 +50,9 @@ from customerContacts
 where lname like 'T%' and char_length(lname) <= 8;
 
 #6
-select lname
+select concat(upper(left(lname, 1)), lower(substring(lname, 2, length(fname))),
+	upper(right(lname, 1))) as 'Cap first/last letter'
 from customerContacts;
-update customerContacts
-set lname = 'LennoN'
-where customerContactId = 11;
-select lname
-from customerContacts;
-
 
 #7
 SELECT date_format('2011-3-7', '%W, %M %e, %Y') AS result;
