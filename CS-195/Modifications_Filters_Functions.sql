@@ -50,7 +50,8 @@ from customerContacts
 where lname like 'T%' and char_length(lname) <= 8;
 
 #6
-select concat(upper(left(lname, 1)), lower(substring(lname, 2, length(fname)-1)),
+select concat(upper(left(lname, 1)), 
+	lower(substring(lname, 2, length(lname) - 2)),
 	upper(right(lname, 1))) as 'Cap first/last letter'
 from customerContacts;
 
