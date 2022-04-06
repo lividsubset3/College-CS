@@ -30,10 +30,14 @@ select distinct email
 from customerContacts
 where email not like '%.com%';
 
-#3 Not Finished
-select quantity, cost
+#3
+select quantity, 
+	shipping_cost as 'shiping_Cost', 
+	shipping_cost2 as 'shiping_Cost', 
+	shipping_cost3 as 'shiping_Cost'
 from orderLines join products
-on orderLines.productId = products.productId;
+on orderLines.productId = products.productId
+where shipping_cost = (quantity <= 5);
 
 #4
 select email
@@ -45,10 +49,14 @@ select lname
 from customerContacts
 where lname like 'T%' and char_length(lname) <= 8;
 
-#6 Not Finished
+#6
 select lname
-from customerContacts
-order by customerContactId desc limit 1;
+from customerContacts;
+update customerContacts
+set lname = 'LennoN'
+where customerContactId = 11;
+select lname
+from customerContacts;
 
 
 #7
@@ -67,6 +75,26 @@ select date_format(addtime(curdate(), '100:00:00'), '%I:%i %p') as result;
 select date_format(subtime(curdate(), '100:00:00'), '%I:%i %p') as result;
 
 #10
-select customerId
-from customers join customerContacts
-on customers.customerId = customerContacts.customerId;
+select customerId, count(fname) from customerContacts
+group by customerId;
+
+select * from customerContacts;
+
+#11
+select orderDate, quantity from orderlines
+join orders
+on orderlines.orderId = orders.orderId
+group by orderDate
+order by orderDate asc;
+
+#12
+select customerId, min(orderDate) from orders
+join orderLines
+on orderlines.orderId = orders.orderId
+group by customerId;
+
+#13
+select orderDate, quantity from orderlines
+join orders
+on orderlines.orderId = orders.orderId
+where quantity > 1;
