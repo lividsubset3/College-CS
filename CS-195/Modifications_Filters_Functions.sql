@@ -31,13 +31,17 @@ from customerContacts
 where email not like '%.com%';
 
 #3
-select quantity, 
-	shipping_cost as 'shiping_Cost', 
-	shipping_cost2 as 'shiping_Cost', 
-	shipping_cost3 as 'shiping_Cost'
-from orderLines join products
-on orderLines.productId = products.productId
-where shipping_cost = (quantity <= 5);
+select distinct productId, quantity,
+if((select sum(quantity) from orderLines where quantity <= 5) <= 5, 1.00, null) 'Shipping Cost'
+from orderLines;
+
+select distinct productId, quantity,
+if(5 < (select sum(quantity) from orderLines) <= 10, 3.00, null) 'Shipping Cost'
+from orderLines;
+
+select distinct productId, quantity,
+if((select sum(quantity) from orderLines) < 10, 5.00, null) 'Shipping Cost'
+from orderLines;
 
 #4
 select email
