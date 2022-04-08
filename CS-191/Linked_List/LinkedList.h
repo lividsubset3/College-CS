@@ -12,13 +12,13 @@ struct Node {
 
 class LinkedList {
 private:
-    Node *top;
+    Node *top, *bottom;
     int size;
 public:
     LinkedList();
 
     void addToTop(int);
-    int addToBottom(int);
+    void addToBottom(int);
     int getSize();
 
     void display();

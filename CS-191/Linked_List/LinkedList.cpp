@@ -11,32 +11,12 @@ using namespace std;
 
 LinkedList::LinkedList() {
     top = nullptr; // NULL
+    bottom = nullptr; // NULL
     size = 0;
-}
-
-void LinkedList::addToTop(int v) { // O(1) (Order [1])
-    Node *p = new Node; // Allocate mem for new empty node
-    p->data = v;        // assign value to new empty node
-    p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
-    top = p;            // Set top to current node
-    size++;
 }
 
 int LinkedList::getSize() {
     return size;
-}
-
-int LinkedList::addToBottom(int v) {
-    Node *runner = top;        // Runner starts at the top
-    while (runner->next != nullptr) { // Checks if node is present and if its not null pointer
-        runner = runner->next;   // point to node that has nullptr up next
-    }
-    Node *p = new Node;  // Make new node
-    p->data = v;     // Put the value in the empty node
-    p->next = nullptr; // point new node w/ value to null
-    runner->next = p; // make the runner point to new node
-    size++; // increase size
-    // return 0;
 }
 
 void LinkedList::display() { // This method is really slow | rt = kn | O(n)
@@ -59,3 +39,60 @@ int LinkedList::countPos() {
     }
     return n;
 }
+
+void LinkedList::addToBottom(int v) {
+    if (size == 0) {
+        Node *p = new Node;
+        p->data = v;
+        p->next = nullptr;
+        top = bottom = p;
+        size++;
+    } else {
+        Node *p = new Node;
+        p->data = v;
+        p->next = nullptr;
+        bottom->next = p;
+        bottom = p;
+        size++;
+    }
+}
+
+void LinkedList::addToTop(int v) { // O(1) (Order [1])
+    if (size == 0) {
+        Node *p = new Node; // Allocate mem for new empty node
+        p->data = v;        // assign value to new empty node
+        p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
+        top = p;            // Set top to node
+        bottom = p;         // Set Bottom to node
+        size++;
+    } else {
+        Node *p = new Node; // Allocate mem for new empty node
+        p->data = v;        // assign value to new empty node
+        p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
+        top = p;            // Set top to current node
+        size++;
+    }
+}
+/*
+void LinkedList::addToBottom(int v) { // O(n)
+    if (size != 0) {  // List is not empty
+        Node *runner = top;        // Runner starts at the top
+        while (runner->next != nullptr) { // Checks if node is present and if its not null pointer
+            runner = runner->next;   // point to node that has nullptr up next
+        }
+        Node *p = new Node;  // Make new node
+        p->data = v;     // Put the value in the empty node
+        p->next = nullptr; // point new node w/ value to null
+        runner->next = p; // make the runner point to new node
+        size++; // increase size
+        // return 0;
+    } else { // List is empty
+        Node *p = new Node; // Make a new Node
+        p->data = v;    // Assign value to new node
+        p->next = nullptr; // point new node to null
+        top = p; // enable top to new node
+        size++; // increment size
+    }
+}*/
+
+
