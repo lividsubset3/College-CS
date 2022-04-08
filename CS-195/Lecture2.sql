@@ -3,12 +3,14 @@ use customersAndProducts;
 
 
 #what is the customerId for Music R Us?
+# Filter Subquery
 select customerId from customers
 where customerName = 'Music R Us';
 
 #what emails are there for Music r Us?
+# can use in or = 
 select email from customerContacts
-where customerId in
+where customerId =
 (
     select customerId from customers
     where customerName = 'Music R Us'
@@ -114,7 +116,10 @@ where customerId =
     from customerContacts
     where fname = 'Benjamin'
     and lname = 'Franklin'
-);
+) and !(fname = 'Benjamin' and lname = 'Franklin');
+# Filter out the Ben Franklin so it displays only what needed 
+# and not what youur querying
+
 
 #having DEMO
 select orderId, sum(quantity) from orderLines
@@ -132,3 +137,13 @@ having sum(quantity) >
         group by orderId
     ) as T        #error without T - every derived table must have its own alias
 );
+
+
+# Subquery Assignment item #1
+select customerName
+from customers
+where customerId in (
+	select customerId
+	from orders
+	where date < '2006/02/05'
+    );
