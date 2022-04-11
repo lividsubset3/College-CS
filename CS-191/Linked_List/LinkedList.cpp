@@ -73,6 +73,48 @@ void LinkedList::addToTop(int v) { // O(1) (Order [1])
         size++;
     }
 }
+
+/*
+    part of solution
+    runner = top;
+
+    while(runner-> data != target) {
+        runner = runner->next;
+    }
+
+    Solution #1
+    struct node {
+        int data
+        node *next , y prev;
+    }
+
+    runner = top;
+    while (runner -> next -> data != target)  {
+        runner = runner ->next;
+    }
+    runner->next = runner->next->next;
+    size--;
+    delete runner->next;
+
+
+    // This only works when you are deleting nodes inside the list.
+    node *trail = top;
+    node *lead = top->next;
+
+    while (lead != nullptr && lead->data != target) {
+        trail = lead;
+        lead = lead->next;
+    }
+    trail->next = lead->next;
+    size--;
+    if (lead != nullptr) {
+        del lead;
+        return true;
+    } else {
+        return false;
+    }
+*/
+
 /*
 void LinkedList::addToBottom(int v) { // O(n)
     if (size != 0) {  // List is not empty
