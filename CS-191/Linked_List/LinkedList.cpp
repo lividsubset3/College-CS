@@ -40,7 +40,16 @@ int LinkedList::countPos() {
     return n;
 }
 
-bool LinkedList::deleteVal(int v){
+double LinkedList::average() {
+    int sum = 0;
+    Node *runner = top;
+    while (runner != nullptr) {
+        sum += runner->data;
+    }
+    return (double) sum / size;
+}
+
+bool LinkedList::deleteVal(int v) {
     Node *trail = top;
     Node *lead = top->next;
     while (lead != nullptr && lead->data != v) {
@@ -48,12 +57,13 @@ bool LinkedList::deleteVal(int v){
         lead = lead->next;
     }
     // cout << "*** found " << lead->data << "\n";
-    if (lead != nullptr) {
-        trail->next = lead->next;
-        size--;
-        return true;
+    if (lead != nullptr) {      // If we are at a valid node
+        trail->next = lead->next;  // Jump from the current node skip the next and select the one after skipped
+        delete lead;
+        size--;     // decrease size
+        return true;        // Had a deletion
     } else
-        return false;
+        return false;  // Tried to delete val 99, Witch is not possible
 }
 
 void LinkedList::addToTop(int v) { // O(1) (Order [1])

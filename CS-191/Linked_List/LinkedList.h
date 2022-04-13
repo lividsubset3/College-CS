@@ -19,8 +19,10 @@ public:
 
     void addToTop(int);
     void addToBottom(int);
-    bool deleteVal(int);
     int getSize();
+    bool deleteVal(int);
+    double average();
+
 
     void display();
     int countPos();
