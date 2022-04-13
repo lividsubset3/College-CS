@@ -40,21 +40,20 @@ int LinkedList::countPos() {
     return n;
 }
 
-void LinkedList::addToBottom(int v) {
-    if (size == 0) {
-        Node *p = new Node;
-        p->data = v;
-        p->next = nullptr;
-        top = bottom = p;
-        size++;
-    } else {
-        Node *p = new Node;
-        p->data = v;
-        p->next = nullptr;
-        bottom->next = p;
-        bottom = p;
-        size++;
+bool LinkedList::deleteVal(int v){
+    Node *trail = top;
+    Node *lead = top->next;
+    while (lead != nullptr && lead->data != v) {
+        trail = lead;
+        lead = lead->next;
     }
+    // cout << "*** found " << lead->data << "\n";
+    if (lead != nullptr) {
+        trail->next = lead->next;
+        size--;
+        return true;
+    } else
+        return false;
 }
 
 void LinkedList::addToTop(int v) { // O(1) (Order [1])
@@ -64,14 +63,29 @@ void LinkedList::addToTop(int v) { // O(1) (Order [1])
         p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
         top = p;            // Set top to node
         bottom = p;         // Set Bottom to node
-        size++;
     } else {
         Node *p = new Node; // Allocate mem for new empty node
         p->data = v;        // assign value to new empty node
         p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
         top = p;            // Set top to current node
-        size++;
     }
+    size++;
+}
+
+void LinkedList::addToBottom(int v) {
+    if (size == 0) {
+        Node *p = new Node;
+        p->data = v;
+        p->next = nullptr;
+        top = bottom = p;
+    } else {
+        Node *p = new Node;
+        p->data = v;
+        p->next = nullptr;
+        bottom->next = p;
+        bottom = p;
+    }
+    size++;
 }
 
 /*
@@ -108,7 +122,7 @@ void LinkedList::addToTop(int v) { // O(1) (Order [1])
     trail->next = lead->next;
     size--;
     if (lead != nullptr) {
-        del lead;
+        delete lead;
         return true;
     } else {
         return false;

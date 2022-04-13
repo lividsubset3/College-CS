@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(Linked_List
         LinkedList.cpp
-        LinkedList.h main.cpp)
+        LinkedList.h LinkedListTask.cpp)

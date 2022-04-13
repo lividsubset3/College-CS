@@ -19,6 +19,7 @@ public:
 
     void addToTop(int);
     void addToBottom(int);
+    bool deleteVal(int);
     int getSize();
 
     void display();
