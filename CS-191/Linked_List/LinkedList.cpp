@@ -164,6 +164,7 @@ double LinkedList::average() {
     return (double) sum / size;
 }
 
+// Notes (Not needed to worry about)
 /*
     part of solution
     runner = top;
@@ -203,9 +204,7 @@ double LinkedList::average() {
     } else {
         return false;
     }
-*/
 
-/*
 void LinkedList::addToBottom(int v) { // O(n)
     if (size != 0) {  // List is not empty
         Node *runner = top;        // Runner starts at the top
