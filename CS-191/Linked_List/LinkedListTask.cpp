@@ -1,6 +1,9 @@
-//
-// Created by Pat Rak on 4/1/22.
-//
+/*
+    191
+    Linked List
+    main.cpp
+    Patrick Rakowicz
+*/
 
 #include <iostream>
 #include "LinkedList.h"
