@@ -19,11 +19,14 @@ public:
 
     void addToTop(int);
     void addToBottom(int);
-    int getSize();
+
     bool deleteVal(int);
+    void deleteTop();
+    void deleteBottom();
+    int countValues(int);
     double average();
 
-
+    int getSize();
     void display();
     int countPos();
 };

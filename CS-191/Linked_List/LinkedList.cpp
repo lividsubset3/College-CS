@@ -10,8 +10,7 @@ using namespace std;
 // If run time fixed not proportional to # items O(1)
 
 LinkedList::LinkedList() {
-    top = nullptr; // NULL
-    bottom = nullptr; // NULL
+    top = bottom = nullptr;
     size = 0;
 }
 
@@ -40,32 +39,6 @@ int LinkedList::countPos() {
     return n;
 }
 
-double LinkedList::average() {
-    int sum = 0;
-    Node *runner = top;
-    while (runner != nullptr) {
-        sum += runner->data;
-    }
-    return (double) sum / size;
-}
-
-bool LinkedList::deleteVal(int v) {
-    Node *trail = top;
-    Node *lead = top->next;
-    while (lead != nullptr && lead->data != v) {
-        trail = lead;
-        lead = lead->next;
-    }
-    // cout << "*** found " << lead->data << "\n";
-    if (lead != nullptr) {      // If we are at a valid node
-        trail->next = lead->next;  // Jump from the current node skip the next and select the one after skipped
-        delete lead;
-        size--;     // decrease size
-        return true;        // Had a deletion
-    } else
-        return false;  // Tried to delete val 99, Witch is not possible
-}
-
 void LinkedList::addToTop(int v) { // O(1) (Order [1])
     if (size == 0) {
         Node *p = new Node; // Allocate mem for new empty node
@@ -73,13 +46,14 @@ void LinkedList::addToTop(int v) { // O(1) (Order [1])
         p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
         top = p;            // Set top to node
         bottom = p;         // Set Bottom to node
+        size++;
     } else {
         Node *p = new Node; // Allocate mem for new empty node
         p->data = v;        // assign value to new empty node
         p->next = top;      // point to new node with value | if only one node make top | once new node point to new node
         top = p;            // Set top to current node
+        size++;
     }
-    size++;
 }
 
 void LinkedList::addToBottom(int v) {
@@ -88,14 +62,106 @@ void LinkedList::addToBottom(int v) {
         p->data = v;
         p->next = nullptr;
         top = bottom = p;
+        size++;
     } else {
         Node *p = new Node;
         p->data = v;
         p->next = nullptr;
         bottom->next = p;
         bottom = p;
+        size++;
     }
-    size++;
+}
+
+bool LinkedList::deleteVal(int v) {
+    Node *trail = top;
+    Node *lead = top->next;
+    if (lead == nullptr) {
+        deleteBottom();
+        size--;
+        return true;
+    } else if (v == top->data) {
+        deleteTop();
+        size--;
+        return true;
+    } else {
+        if (size == 0) {
+            return false;
+        }
+        while (lead != nullptr && lead->data != v) {
+            trail = lead;
+            lead = lead->next;
+        }
+
+        if (lead != nullptr) {
+            trail->next = lead->next;
+            delete lead;
+            size--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+void LinkedList::deleteTop() {
+    Node *x = top;
+    if (size == 0) {
+        cout << "list is empty" << endl;
+    } else if (x->next == nullptr) {
+        delete x;
+        top = nullptr;
+        size--;
+        cout << "list is now empty" << endl;
+    } else {
+        top = top->next;
+        delete x;
+        size--;
+    }
+}
+
+void LinkedList::deleteBottom() {
+    Node *x = top;
+
+    if (x == nullptr) {
+        cout << "list is empty" << endl;
+    } else if (x->next == nullptr) {
+        delete x;
+        top = nullptr;
+        size--;
+        cout << "list is now empty" << endl;
+    } else {
+        while (x->next->next != nullptr) {
+            x = x->next;
+        }
+        Node *temp = x->next;
+        x->next = nullptr;
+        delete temp;
+        size--;
+    }
+}
+
+int LinkedList::countValues(int v) {
+    Node *curr = top;
+    int cnt = 0;
+    while (curr != nullptr) {
+        if (curr->data == v) {
+            cnt += 1;
+            curr = curr->next;
+        } else {
+            curr = curr->next;
+        }
+    }
+    return cnt;
+}
+
+double LinkedList::average() {
+    int sum = 0;
+    Node *runner = top;
+    while (runner != nullptr) {
+        sum += runner->data;
+    }
+    return (double) sum / size;
 }
 
 /*
@@ -132,7 +198,7 @@ void LinkedList::addToBottom(int v) {
     trail->next = lead->next;
     size--;
     if (lead != nullptr) {
-        delete lead;
+        del lead;
         return true;
     } else {
         return false;
