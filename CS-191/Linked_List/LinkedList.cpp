@@ -39,6 +39,29 @@ int LinkedList::countPos() {
     return n;
 }
 
+double LinkedList::average() {
+    int sum = 0;
+    Node *runner = top;
+    while (runner != nullptr) {
+        sum += runner->data;
+    }
+    return (double) sum / size;
+}
+
+int LinkedList::countValues(int v) {
+    Node *curr = top;
+    int cnt = 0;
+    while (curr != nullptr) {
+        if (curr->data == v) {
+            cnt += 1;
+            curr = curr->next;
+        } else {
+            curr = curr->next;
+        }
+    }
+    return cnt;
+}
+
 void LinkedList::addToTop(int v) { // O(1) (Order [1])
     if (size == 0) {
         Node *p = new Node; // Allocate mem for new empty node
@@ -139,29 +162,6 @@ void LinkedList::deleteBottom() {
         delete temp;
         size--;
     }
-}
-
-int LinkedList::countValues(int v) {
-    Node *curr = top;
-    int cnt = 0;
-    while (curr != nullptr) {
-        if (curr->data == v) {
-            cnt += 1;
-            curr = curr->next;
-        } else {
-            curr = curr->next;
-        }
-    }
-    return cnt;
-}
-
-double LinkedList::average() {
-    int sum = 0;
-    Node *runner = top;
-    while (runner != nullptr) {
-        sum += runner->data;
-    }
-    return (double) sum / size;
 }
 
 // Notes (Not needed to worry about)
