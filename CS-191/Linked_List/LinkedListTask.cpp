@@ -1,5 +1,5 @@
 /*
-    191
+    CS-191
     Linked List
     main.cpp
     Patrick Rakowicz
@@ -19,6 +19,10 @@ int main() {
     l1.addToBottom(-10);
     l1.addToTop(20);
     l1.addToBottom(-15);
+
+    l1.deleteVal(-5);
+    l1.countValues(10);
+
 
     l1.display();
 }
