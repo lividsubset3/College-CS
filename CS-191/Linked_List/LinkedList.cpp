@@ -17,7 +17,7 @@ LinkedList::LinkedList() {
     size = 0;
 }
 
-int LinkedList::getSize() {
+int LinkedList::getSize() { // For implementation of other functions. Not used
     return size;
 }
 
@@ -30,7 +30,7 @@ void LinkedList::display() { // This method is really slow | rt = kn | O(n)
     cout << "\n";
 }
 
-int LinkedList::countPos() {
+int LinkedList::countPos() { // Not used, was here for testing and implementation
     int n = 0;
     Node *runner = top;
     while (runner != nullptr) {
@@ -42,7 +42,7 @@ int LinkedList::countPos() {
     return n;
 }
 
-double LinkedList::average() {
+double LinkedList::average() { // Testing purposes and implementation
     int sum = 0;
     Node *runner = top;
     while (runner != nullptr) {
