@@ -16,34 +16,34 @@ create table friends (
     friendName varchar(20) not null
 );
 
+-- insert into friends (friendName)
+-- 	values
+--     ('Mike Lopez'),
+--     ('Gary Hudson'),
+--     ('Bruce Bradley'),
+--     ('Barbara Johnson'),
+--     ('James Black'),
+--     ('jeremy White'),
+--     ('Jack Riddler');
+    
+    
 insert into friends (friendName)
-	values
-    ('Mike Lopez'),
-    ('Gary Hudson'),
-    ('Bruce Bradley'),
-    ('Barbara Johnson'),
-    ('James Black'),
-    ('jeremy White'),
-    ('Jack Riddler');
-    
-    
--- insert into friends (friendName)
--- values ('Mike Lopez');
--- insert into friends (friendName)
--- values ('Gary Hudson');
--- insert into friends (friendName)
--- values ('Bruce Bradley');
--- insert into friends (friendName)
--- values ('Barbara Johnson');
--- insert into friends (friendName)
--- values ('James Black');
--- insert into friends (friendName)
--- values ('jeremy White');
--- insert into friends (friendName)
--- values ('Jack Riddler');
+values ('Mike Lopez');
+insert into friends (friendName)
+values ('Gary Hudson');
+insert into friends (friendName)
+values ('Bruce Bradley');
+insert into friends (friendName)
+values ('Barbara Johnson');
+insert into friends (friendName)
+values ('James Black');
+insert into friends (friendName)
+values ('jeremy White');
+insert into friends (friendName)
+values ('Jack Riddler');
 
 select * from friends;
-set @id = last_insert_id(@id);
+set @id = last_insert_id();
 #select @id;
 
 create table emails (
