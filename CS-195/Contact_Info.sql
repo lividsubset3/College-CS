@@ -1,7 +1,8 @@
 /* 
    CS 195
-   Patrick Rakowicz
-   Contact Info
+   Patrick Rakowicz | Caleb Domenico
+   Contact Info (Modified)
+   Misc reading, Modified ContactInfo
 */
 
 drop database if exists contactInfo;
@@ -12,10 +13,11 @@ drop table if exists customersAndProducts;
 # smallint allows -+32k integers (people)
 
 create table friends (
-	friendId smallint auto_increment not null primary key, 
+	friendId smallint unsigned auto_increment not null primary key, 
     friendName varchar(20) not null
 );
 
+# Testing some stuff here
 -- insert into friends (friendName)
 -- 	values
 --     ('Mike Lopez'),
@@ -43,51 +45,56 @@ insert into friends (friendName)
 values ('Jack Riddler');
 
 select * from friends;
-set @id = last_insert_id();
+# Not sure what you are asking with using last_insert_id();
+set @Mike_Lopez = last_insert_id(1); 
+set @Gary_Hudson = last_insert_id(2);
+set @Bruce_Bradley = last_insert_id(3);
+set @Barbra_Johnson = last_insert_id(4);
+set @Jame_Black = last_insert_id(5);
 #select @id;
 
 create table emails (
 	emailId smallint unsigned auto_increment not null primary key,
-    friendId smallint unsigned not null,
+    friendId smallint signed not null,
     email varchar(30) not null
 );
 
 insert into emails (friendId, email)
-values (@id, 'garyhudson@oldfriends.com');
+values (@Gary_Hudson, 'garyhudson@oldfriends.com');
 insert into emails (friendId, email)
-values (@id, 'mikelopez@oldfriends.com');
+values (@Mike_Lopez, 'mikelopez@oldfriends.com');
 insert into emails (friendId, email)
-values (@id, 'garyhudson@hudsonlaw.com');
+values (@Gary_Hudson, 'garyhudson@hudsonlaw.com');
 insert into emails (friendId, email)
-values (@id, 'nashvillebabs@aol.com');
+values (@Barbra_Johnson, 'nashvillebabs@aol.com');
 insert into emails (friendId, email)
-values (@id, 'seniorpartner1@hudsonlaw.com');
+values (@Barbra_Johnson, 'seniorpartner1@hudsonlaw.com');
 insert into emails (friendId, email)
-values (@id, 'bruce@powerstart.com');
+values (@Bruce_Bradley, 'bruce@powerstart.com');
 insert into emails (friendId, email)
-values (@id, 'ftlgary@punxhotany.com');
+values (@Gary_Hudson, 'ftlgary@punxhotany.com');
 
 select * from emails;
 
 create table phones (
-	phoneId smallint unsigned auto_increment  primary key not null,
+	phoneId smallint unsigned auto_increment primary key not null,
     friendId smallint unsigned not null,
     phone varchar(13) not null
 );
 
 insert into phones (friendId, phone)
-values (@id, '123-123-1234');
+values (@Gary_Hudson, '123-123-1234');
 insert into phones (friendId, phone)
-values (@id, '123-111-1111');
+values (@Gary_Hudson, '123-111-1111');
 insert into phones (friendId, phone)
-values (@id, '111-222-1111');
+values (@Mike_Lopez, '111-222-1111');
 insert into phones (friendId, phone)
-values (@id, '123-111-1111');
+values (@Barbra_Johnson, '123-111-1111');
 insert into phones (friendId, phone)
-values (@id, '321-321-3211');
+values (@Bruce_Bradley, '321-321-3211');
 insert into phones (friendId, phone)
-values (@id, '456-111-1111');
+values (@Bruce_Bradley, '456-111-1111');
 insert into phones (friendId, phone)
-values (@id, '909-808-1111');
+values (@Barbra_Johnson, '909-808-1111');
 
 select * from phones;
