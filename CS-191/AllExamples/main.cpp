@@ -2,6 +2,65 @@
 
 using namespace std;
 
+// reverse function
+int sumSquares(int n) {
+    if (n == 1) return 1;
+    else return n * n + sumSquares(n - 1);
+}
+
+// Appropriate surcture for a teacher
+struct Teacher {
+    string name;
+    double rating;
+    bool phd;
+};
+// Declare T1 to be a teacher with values
+Teacher t1 = {"Tom Bushman", 4.5, false};
+
+// The function returns a count of integers in the array x
+// in the grade low,high asume the size of x is already MAX
+int countInRange(int x[], int low, int high) { // Order (n)
+    int n = 0;
+    for (int i = 0; i < MAX; i++) {
+        if (low <= x[i] && x[i] <= high)
+            n++;
+    }
+    return n;
+}
+
+// if the input was 20, 10 then the output would be
+// smallest: 10 Largest: 20
+void assignOrder(double &x, double &y) {
+    if (x > y) {
+        double temp = y;
+        y = x;
+        x = temp;
+    }
+}
+
+// assume int x[MAX]
+// searches for the target in x returning the last
+// position at witch target is found
+int linearSearch(int x[], int target) {
+    for (int i = MAX - 1; i >= 0, i++) {
+        if (x[i] == target)
+            return i;
+    }
+    return -1;
+}
+
+/*
+ *  top -> () -> () -> (PTR) -> () -> () -> NULL
+ *
+ *  correctly delete the node after the node ptr points too
+ *
+ *  Node *p = ptr->next;
+ *  ptr->next = ptr->next->next;
+ *  delete p;
+ *  size--;
+ */
+
+
 class Node {
 public:
     int data;
@@ -13,6 +72,23 @@ void push(Node **head_ref, int new_data) { // O(1) order(1)
     new_node->data = new_data;              // Put into data
     new_node->next = (*head_ref);           // Make the next of new node as head
     (*head_ref) = new_node;                 // Mode the head to point to the new node
+}
+
+int size = 0;
+
+// Find and return largest value in the linked list
+int findMax() { // Order(n)
+    if (size == 1) return top->data;
+    else {
+        int maxV = top->data;
+        Node *p = top->next;
+        while (p != NULL) {
+            if (top->data > maxV)
+                maxV = top->data;
+            p = p->next;
+        }
+        return maxV;
+    }
 }
 
 void deleteNode(Node **head_ref, int key) {
@@ -98,7 +174,7 @@ int main() {
 
     cout << "After Deleted List: ";
     printList(head);
-    cout  << '\n';
+    cout << '\n';
 
     return 0;
 }
